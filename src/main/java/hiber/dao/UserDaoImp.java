@@ -1,5 +1,6 @@
 package hiber.dao;
 
+import hiber.model.Car;
 import hiber.model.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -28,13 +29,14 @@ public class UserDaoImp implements UserDao {
     }
 
     @Override
-    @SuppressWarnings("unchecked")
+   @SuppressWarnings("unchecked")
     public User getUsersByCar(String model, int series) {
-        String hql = "FROM User WHERE car.model = :model AND car.series = :series";
-        Query<User> userQuery = sessionFactory.getCurrentSession()
+        String hql = "from User where car.model =:model and car.series =:series ";
+        Query<User> query = sessionFactory.getCurrentSession()
                 .createQuery(hql)
                 .setParameter("model", model)
                 .setParameter("series", series);
-        return userQuery.getSingleResult();
+        return query.getSingleResult();
     }
 }
+

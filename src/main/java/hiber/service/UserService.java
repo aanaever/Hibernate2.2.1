@@ -1,13 +1,14 @@
 package hiber.service;
 
+import hiber.model.Car;
 import hiber.model.User;
 
 import java.util.List;
 
 public interface UserService {
-    void add(User user);
+    public void add(User user);
 
-    List<User> listUsers();
+    public List<User> listUsers();
 
-    User getUsersByCar(String model, int series);
+    public User getUsersByCar(String model, int series);
 }
